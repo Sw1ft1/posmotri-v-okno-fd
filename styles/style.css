@@ -160,7 +160,7 @@ ol {
   appearance: none;
 }
 
-.search-form__textfield::placeholder{
+.search-form__textfield::placeholder {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
 }
@@ -195,7 +195,7 @@ ol {
 }
 
 
-.search-form__label:hover .search-form__label-text{
+.search-form__label:hover .search-form__label-text {
   text-decoration: underline;
 }
 
@@ -223,13 +223,14 @@ ol {
   overflow-y: auto;
 }
 
-
 .content__list::-webkit-scrollbar {
   width: 1px;               
 }
+
 .content__list::-webkit-scrollbar-track {
   background: transparent;        
 }
+
 .content__list::-webkit-scrollbar-thumb {
   background-color: black;    
 }
