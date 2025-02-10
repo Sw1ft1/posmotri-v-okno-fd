@@ -224,15 +224,15 @@ ol {
 }
 
 .content__list::-webkit-scrollbar {
-  width: 1px;               
+  width: 1px;
 }
 
 .content__list::-webkit-scrollbar-track {
-  background: transparent;        
+  background: transparent;
 }
 
 .content__list::-webkit-scrollbar-thumb {
-  background-color: black;    
+  background-color: black;
 }
 
 .content__list li:not(:last-child) {
@@ -292,7 +292,7 @@ ol {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 192px; 
+  max-width: 192px;
   font-family: Oswald, sans-serif;
   font-size: 30px;
   font-weight: 700;
