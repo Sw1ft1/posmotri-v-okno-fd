@@ -1,116 +1,309 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Посмотри в окно</title>
-    <link rel="stylesheet" href="./fonts/fonts.css" />
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/preloader.css" />
-    <link rel="stylesheet" href="./styles/error.css" />
-  </head>
-  <body class="page">
-    <main class="content">
-      <section class="result">
-        <div class="result__video-container">
-          <video src="" controls class="result__video" poster=""></video>
-        </div>
-        <form class="search-form">
-          <fieldset class="search-form__fieldset">
-            <h2 class="search-form__fieldset-title">Город</h2>
-            <label class="search-form__label">
-              <span class="search-form__label-text visually-hidden">Город</span>
-              <input
-                type="text"
-                placeholder="Санкт Петербург, например"
-                name="city"
-                class="search-form__textfield"
-              />
-            </label>
-          </fieldset>
-          <fieldset class="search-form__fieldset">
-            <h2 class="search-form__fieldset-title">Время суток</h2>
-            <div class="search-form__checkbox-list">
-              <label class="search-form__label">
-                <input
-                  type="checkbox"
-                  name="time"
-                  value="morning"
-                  class="search-form__checkbox visually-hidden"
-                />
-                <span class="search-form__pseudo-checkbox"></span>
-                <span class="search-form__label-text">Утро</span>
-              </label>
-              <label class="search-form__label">
-                <input
-                  type="checkbox"
-                  name="time"
-                  value="afternoon"
-                  class="search-form__checkbox visually-hidden"
-                />
-                <span class="search-form__pseudo-checkbox"></span>
-                <span class="search-form__label-text">День</span>
-              </label>
-              <label class="search-form__label">
-                <input
-                  type="checkbox"
-                  name="time"
-                  value="night"
-                  class="search-form__checkbox visually-hidden"
-                />
-                <span class="search-form__pseudo-checkbox"></span>
-                <span class="search-form__label-text">Ночь</span>
-              </label>
-            </div>
-          </fieldset>
-          <button type="submit" class="button search-form__submit-button">
-            Найти
-          </button>
-        </form>
-      </section>
-      <section class="content__details">
-        <h1 class="title">
-          <span class="content__accent">По-</span><br />смотри<br />в окно
-        </h1>
-        <ul class="content__list">
-        </ul>
-      </section>
-    </main>
-    
-    <template class="preloader-template">
-      <div class="preloader">
-        <div class="preloader-chasing-squares">
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-        </div>
-      </div>
-    </template>
+ *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-    <template class="cards-list-item-template">
-      <li class="content__list-item">
-        <a href="#0" class="content__card-link">
-          <article class="content__video-card">
-            <div class="content__video-card-description-container">
-              <h2 class="content__video-card-title"></h2>
-              <p class="content__video-card-description"></p>
-            </div>
-            <img src="" alt="" class="content__video-card-thumbnail" />
-          </article>
-        </a>
-      </li>
-    </template>
-    <template class="more-button-template">
-      <li><button class="button more-button">Показать ещё</button></li>
-    </template>
+html {
+  block-size: 100%;
+}
 
-    <template class="error-template">
-      <div class="error">
-        <h2 class="error__title"></h2>
-      </div>
-    </template>
-    <script src="./scripts/script.js"></script>
-  </body>
-</html>
+.page {
+  inline-size: 1200px;
+  block-size: 100%;
+  margin: auto;
+  color: #fff;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
+  background-color: #1b1919;
+  display: flex;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+blockquote,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.content {
+  width: 1140px;
+  margin: auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.result {
+  width: 711px;
+}
+
+.result__video-container {
+  height: 386px;
+  margin-bottom: 16px;
+  display: flex;
+  position: relative;
+}
+
+.result__video {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.search-form {
+  display: grid;
+  grid-template-columns: 225px 212px 194px;
+  justify-content: space-between;
+}
+
+.search-form__fieldset-title {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.search-form__fieldset {
+  border: none;
+}
+
+.search-form__label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.button {
+
+  border: 1px white solid;
+  padding: 6px 0;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  font-family: 'Fira Sans Condensed', sans-serif ;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21.6px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.button:active {
+  background-color: rgba(84, 80, 80, 1);
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:focus {
+  outline: 1px white solid;
+  outline-offset: 2px;
+}
+
+.search-form__submit-button {
+  align-self: end;
+}
+
+.more-button {
+  align-self: end;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.search-form__textfield {
+  margin: 1px;
+  width: 100%;
+  border: none;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-radius: 0;
+  padding: 2.5px 0;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.6px;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.search-form__textfield::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+
+}
+
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px white solid;
+}
+
+.search-form__pseudo-checkbox {
+  height: 19px;
+  width: 20px;
+  margin-right: 5px;
+  border: 1px white solid;
+  display: flex;
+  margin: 2px;
+}
+
+.search-form__checkbox:checked + span::before {
+  content: "";
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  margin: auto auto;
+  background-color: white;
+  padding: 1px;
+}
+
+
+.search-form__label:hover .search-form__label-text{
+  text-decoration: underline;
+}
+
+
+.content__details {
+  width: 399px;
+}
+
+.title {
+  font-family: 'Oswald',  sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 70px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+.content__list {
+  position: relative;
+  height: 298px;
+  overflow-y: auto;
+}
+
+
+.content__list::-webkit-scrollbar {
+  width: 1px;               
+}
+.content__list::-webkit-scrollbar-track {
+  background: transparent;        
+}
+.content__list::-webkit-scrollbar-thumb {
+  background-color: black;    
+}
+
+.content__list li:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.content__video-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 107px;
+}
+
+.content__video-card-description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 176px;
+  padding-top: 2px;
+}
+
+.content__video-card-thumbnail {
+  width: 197px;
+  object-fit: cover;
+}
+
+.content__card-link {
+  margin: 2px;
+  color: white;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+}
+
+.content__card-link:active {
+  background-color: rgba(84, 80, 80, 1);
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px white solid;
+}
+
+.content__video-card-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 192px; 
+  font-family: Oswald, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+
+.content__video-card-description {
+  line-height: 16.2px;
+  padding: 0 2px;
+}
+
+.content__card-link_current {
+  background-color: rgba(84, 80, 80, 1);
+}
